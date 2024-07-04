@@ -8,4 +8,6 @@ import java.util.UUID;
 
 @Repository
 public interface SubscribersRepository extends CrudRepository<Subscribers, UUID> {
+
+    Subscribers findByTelegramId(Long id);
 }

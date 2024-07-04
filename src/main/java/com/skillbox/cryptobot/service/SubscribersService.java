@@ -24,4 +24,8 @@ public class SubscribersService {
         return Mapper.toSubscribersDTO(subscribers);
     }
 
+    public SubscribersDTO getSubscriberByTelegramId(Long id) {
+        return Mapper.toSubscribersDTO(subscribersRepository.findByTelegramId(id));
+    }
+
 }
