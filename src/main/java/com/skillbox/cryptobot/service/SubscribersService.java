@@ -4,8 +4,11 @@ import com.skillbox.cryptobot.model.Subscribers;
 import com.skillbox.cryptobot.model.dto.Mapper;
 import com.skillbox.cryptobot.model.dto.SubscribersDTO;
 import com.skillbox.cryptobot.repository.SubscribersRepository;
+import javassist.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
 
 @Service
 @RequiredArgsConstructor
