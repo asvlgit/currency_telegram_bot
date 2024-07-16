@@ -4,11 +4,10 @@ import com.skillbox.cryptobot.model.Subscribers;
 import com.skillbox.cryptobot.model.dto.Mapper;
 import com.skillbox.cryptobot.model.dto.SubscribersDTO;
 import com.skillbox.cryptobot.repository.SubscribersRepository;
-import javassist.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -22,13 +21,16 @@ public class SubscribersService {
         subscribersRepository.save(subscribers);
     }
 
-    public SubscribersDTO saveSubscriber(SubscribersDTO subscribersDTO) {
+    public void saveSubscriber(SubscribersDTO subscribersDTO) {
         Subscribers subscribers = subscribersRepository.save(Mapper.toSubscribers(subscribersDTO));
-        return Mapper.toSubscribersDTO(subscribers);
     }
 
     public SubscribersDTO getSubscriberByTelegramId(Long id) {
         return Mapper.toSubscribersDTO(subscribersRepository.findByTelegramId(id));
     }
 
+    public List<SubscribersDTO> getSubscribersByCostGreaterThan(double cost) {
+        return subscribersRepository.findByCostGreaterThan(cost).stream()
+                .map(Mapper::toSubscribersDTO).toList();
+    }
 }

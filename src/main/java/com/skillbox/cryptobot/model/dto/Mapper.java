@@ -4,10 +4,18 @@ import com.skillbox.cryptobot.model.Subscribers;
 
 public class Mapper {
     public static SubscribersDTO toSubscribersDTO(Subscribers subscribers) {
+        if (subscribers == null) {
+            return new SubscribersDTO();
+        }
         SubscribersDTO subscribersDTO = new SubscribersDTO();
         subscribersDTO.setId(subscribers.getId());
         subscribersDTO.setTelegramId(subscribers.getTelegramId());
         subscribersDTO.setCost(subscribers.getCost());
+
+        if (subscribers.getNotification() != null) {
+            subscribersDTO.setLastSend(subscribers.getNotification().getLastSend());
+        }
+
         return subscribersDTO;
     }
 
@@ -18,4 +26,5 @@ public class Mapper {
         subscribers.setCost(subscribersDTO.getCost());
         return subscribers;
     }
+
 }

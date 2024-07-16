@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
@@ -12,4 +13,5 @@ public class SubscribersDTO {
     private UUID id;
     private Long telegramId;
     private BigDecimal cost;
+    private LocalDateTime lastSend;
 }

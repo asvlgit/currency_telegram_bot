@@ -1,9 +1,6 @@
 package com.skillbox.cryptobot.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,4 +17,8 @@ public class Subscribers {
     private UUID id;
     private Long telegramId;
     private BigDecimal cost;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "id", referencedColumnName = "id_subscriber")
+    private Notification notification;
 }
