@@ -2,8 +2,8 @@ telegram:
   bot:
 #    не вписывайте данные, так как можете отправить в публичный репозиторий
 #    используйте переменные среды для установки значений
-    username: my_currency_crypto_bot #${BOT_NAME}
-    token: 6960818696:AAFI3mmyv5cSdBaPfO68TceenYX1Ao49Ras #${BOT_TOKEN}
+    username: ${BOT_NAME}
+    token: ${BOT_TOKEN}
     notify:
       delay:
         value: 10
