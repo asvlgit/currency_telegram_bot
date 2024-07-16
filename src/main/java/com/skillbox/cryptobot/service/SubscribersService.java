@@ -22,7 +22,7 @@ public class SubscribersService {
     }
 
     public void saveSubscriber(SubscribersDTO subscribersDTO) {
-        Subscribers subscribers = subscribersRepository.save(Mapper.toSubscribers(subscribersDTO));
+        subscribersRepository.save(Mapper.toSubscribers(subscribersDTO));
     }
 
     public SubscribersDTO getSubscriberByTelegramId(Long id) {

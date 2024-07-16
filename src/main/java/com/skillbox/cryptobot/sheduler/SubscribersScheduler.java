@@ -50,7 +50,7 @@ public class SubscribersScheduler {
                         Duration.between(subscribersDTO.getLastSend(), LocalDateTime.now()).toSeconds() > delay) {
                     sendNotification(subscribersDTO, currentBitcoinPrice);
                 }
-                ;
+
             });
 
         } catch (IOException e) {
